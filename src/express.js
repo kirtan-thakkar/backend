@@ -2,6 +2,10 @@ import express from 'express';
 import { WebSocketServer, WebSocket } from 'ws';
 
 const app = express();
+app.get('/', (req, res) => {
+    console.log((new Date()) + " Received request for " + req.url);
+    res.end("Hi there from http request!");
+});
 const httpserver = app.listen(8080,(req,res)=>{
     console.log((new Date()) + " Server is listening on port 8080");
 });
@@ -18,7 +22,7 @@ wss.on("connection", function connection(socket){
             }
         })
 
-    socket.send("Hi there from websocket server!");
+    // socket.send("Hi there from websocket server!");
         
     })
 })
