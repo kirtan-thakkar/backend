@@ -31,7 +31,6 @@ app.post("/submit", async (req, res) => {
     }),
     
   ); /// here the "Submissions" is basically you can say the name of the queue and the other is the payload that we are getting from the user.
-s
   res.json({
     message: "Submission received successfully!",
  
