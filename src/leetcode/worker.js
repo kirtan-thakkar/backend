@@ -15,7 +15,10 @@ async function main(){
         await new Promise((resolve)=>setTimeout(resolve,1000)) 
         //ideally here send it to pubsub
 
-        redis.publish("Results", response); // here we are publishing the result to the pub sub and then the websocket servers are going to subscribe to this pub sub and then they are going to send the result to the respective user.
+        redis.publish("Results", JSON.stringify({
+            userid : JSON.parse(response).userid,
+            result:"Accepted"
+        })); // here we are publishing the result to the pub sub and then the websocket servers are going to subscribe to this pub sub and then they are going to send the result to the respective user.
 
         console.log("Processing submission: ", response);
     }
