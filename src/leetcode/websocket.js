@@ -16,9 +16,6 @@ const wss = new WebSocketServer({ server });
 
 const users = new Map(); // this is basically to keep track of the users that are connected to the websocket server and we are going to store the user id and the socket connection in this map.
 
-
-
-
 wss.on("connection", function connection(socket){
     socket.on("error", console.error);
 
